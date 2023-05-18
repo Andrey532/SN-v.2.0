@@ -1,0 +1,16 @@
+.sbmt_btn {
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: medium;
+    color: white;
+    background-color: forestgreen;
+    border-radius: 3px;
+    border: 0;
+    margin-left: 35px;
+}
+
+
+

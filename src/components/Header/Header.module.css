@@ -1,0 +1,39 @@
+.header {
+  grid-area: h;
+  height: 55px;
+  background-color: rgb(203, 203, 203);
+  box-shadow: 5px 5px 5px rgb(150, 144, 144);
+  border-radius: 7px;
+}
+
+.loginBlock {
+  float: right;
+}
+
+.loginBlock a {
+  color: white;
+}
+
+.log_out_png {
+  padding: 2px;
+  height: 18px;
+}
+
+.btn{
+  cursor: pointer;
+  font-weight: bolder;
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+  background-color: #fd6e6e;
+  border-radius: 5px;
+}
+
+.logo_SN {
+  height: 30px;
+  width: 35px;
+  margin-top: 10px;
+  margin-left: 20px;
+  border: 3px solid;
+  border-radius: 5px;
+}

@@ -1,0 +1,30 @@
+.paginator {
+    margin-top: 10px;
+    margin-left: 250px;
+}
+
+.pageNumber {
+    padding: 5px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.selectedPage {
+    padding: 5px;
+    border: 2px solid black;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #a6a6a6;
+}
+
+.arrLeft {
+    cursor: pointer;
+    height: 17px;
+    width: 15px;
+}
+
+.arrRight {
+    cursor: pointer;
+    height: 17px;
+    width: 15px;
+}

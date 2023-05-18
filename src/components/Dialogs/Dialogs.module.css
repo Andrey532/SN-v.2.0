@@ -1,0 +1,31 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems {
+  padding: 10px;
+}
+
+.dialogsItems .active {
+  color: rgb(26, 16, 215);
+}
+
+.messages {
+  padding: 10px;
+}
+
+.txt_area {
+  margin-top: 50px;
+  height: 70px;
+  width: 370px;
+}
+
+.btn_snd_msg {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 3px;
+  margin-top: 10px;
+  font-size: 14px;
+  border: 0;
+}

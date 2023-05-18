@@ -1,0 +1,23 @@
+.postsBlock {
+  padding: 10px;
+}
+
+.posts {
+  margin-top: 10px;
+}
+
+.inputForm {
+  height: 50px;
+  width: 300px;
+}
+
+.add_pst_btn {
+  cursor: pointer;
+  height: 27px;
+  width: 95px;
+  border-radius: 4px;
+  border: 0;
+  font-weight: bold;
+  font-size: medium;
+  margin-top: 15px;
+}

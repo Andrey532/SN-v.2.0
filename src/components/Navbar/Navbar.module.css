@@ -1,0 +1,36 @@
+.nav {
+  /*grid-area: n;*/
+  /*background-color: rgb(203, 203, 203);*/
+  padding: 10px;
+  margin-right: 15px;
+  /*box-shadow: 5px 5px 5px rgb(150, 144, 144);*/
+  /*border-radius: 7px;*/
+}
+
+.item {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  color: rgb(23, 17, 208);
+  text-decoration: none;
+}
+
+.btn_profile {
+  cursor: pointer;
+  width: 145px;
+  height: 20px;
+  outline: 2px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 3px 4px 3px rgb(150, 144, 144);
+  margin-top: 8px;
+  font-family: Georgia, serif;
+  font-weight: 600;
+  background-color:  #aaa;
+  padding-left: 5px;
+}
+
+.btn_profile:hover {
+  background: rgba(0,0,0,0);
+}

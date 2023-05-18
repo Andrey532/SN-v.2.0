@@ -1,0 +1,13 @@
+.descriptionBlock {
+  padding: 10px;
+}
+
+.myPhoto {
+  height: 155px;
+  width: 155px;
+  border-radius: 75px;
+}
+
+.block {
+  display: flex;
+}
