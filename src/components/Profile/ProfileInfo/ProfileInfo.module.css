@@ -15,14 +15,15 @@
   display: flex;
   background-color: #901794;
   border-radius: 5px;
+  box-shadow: 5px 5px 5px rgb(150, 144, 144);
 }
 
 .status {
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 78);
 }
 
 .full_name {
-  background-color: #2f2f4f;
+  background-color: #42427e;
 }
 
 .abou_me {
@@ -30,6 +31,7 @@
 }
 
 .contacts {
+  margin-left: 10px;
   background-color: blue;
 }
 

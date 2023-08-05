@@ -1,13 +1,17 @@
 import React from "react";
-import {SubmitHandler, useForm} from "react-hook-form";
 import style from "./LoginHookForm.module.css"
+import {SubmitHandler, useForm} from "react-hook-form";
 
-export type LoginHookFormType = {loginThunk: (email: string, password: string, rememberMe: boolean) => void}
+export type LoginHookFormType = {loginThunk: (email: string, password: string, rememberMe: boolean, captcha: string) => void
+                                 captchaUrl: string | null
+                                 messages: Array<string>
+}
 
 export type LogFormInput = {
   email: string,
   password: string,
   rememberMe: boolean,
+  captcha: string,
 }
 
 const emailConfig = {
@@ -25,11 +29,11 @@ const passwordConfig = {
   }
 }
 
-export const LoginHookForm = ({loginThunk}: LoginHookFormType) => {
+export const LoginHookForm = ({loginThunk, captchaUrl, messages}: LoginHookFormType) => {
 
   const Callback: SubmitHandler<LogFormInput> = (data) => {
-    const {email, password, rememberMe} = data
-    loginThunk(email, password, rememberMe)
+    const {email, password, rememberMe, captcha} = data
+    loginThunk(email, password, rememberMe, captcha)
   }
 
   const {register, handleSubmit, formState: {errors}} = useForm({
@@ -37,23 +41,23 @@ export const LoginHookForm = ({loginThunk}: LoginHookFormType) => {
       email: "",
       password: "",
       rememberMe: false,
+      captcha: "",
     },
     mode: "onChange",
   });
-
   return (
-    <form  noValidate autoComplete="off" onSubmit={handleSubmit(Callback)}>
+    <form className={style.login_form}  noValidate autoComplete="off" onSubmit={handleSubmit(Callback)}>
     <div>
       <input type="email" {...register("email", emailConfig)}
              placeholder={"Email"}/>
-
+      <br/>
       {errors.email && (<span style={{color: "red"}}>{errors.email.message}</span>)}
 
       <br/>
       <input type="password"
              {...register("password", passwordConfig)}
              placeholder={"Password"}/>
-
+      <br/>
       {errors.password && (<span style={{color: "red"}}>{errors?.password?.message}</span>)}
 
       <br/>
@@ -62,6 +66,12 @@ export const LoginHookForm = ({loginThunk}: LoginHookFormType) => {
                {...register("rememberMe")}
               />Remember me
       </div>
+
+      {captchaUrl && <img src={captchaUrl}/>} 
+      {captchaUrl && <input type="text" {...register("captcha")} placeholder="captcha"/>}
+
+      {messages ? <div className={style.captcha_err} >{messages}</div> : null}
+      
       <br/>
       <button className={style.sbmt_btn}>Login</button>
     </div>

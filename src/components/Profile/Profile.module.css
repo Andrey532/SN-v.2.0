@@ -1,5 +1,6 @@
 .post_container {
     background-color: darkslategrey;
+    box-shadow: 5px 5px 5px rgb(150, 144, 144);
     margin-top: 20px;
     border-radius: 5px;
 }

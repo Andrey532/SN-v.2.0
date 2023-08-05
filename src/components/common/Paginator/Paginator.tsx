@@ -39,13 +39,9 @@ export const Paginator: React.FC<PaginatorType> = ({
           {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
             .map((p) => {
-              // return <span className={currentPage === p && styles.selectedPage}
               return <span className={ currentPage === p ? styles.selectedPage : styles.pageNumber}
                            key={p}
-                           onClick={(e) => {
-                             onPageChanged(p)
-                           }}>{p} </span>
-            })}
+                           onClick={(e) => {onPageChanged(p)}}>{p} </span>})}
           {portionCount > portionNumber &&
               <button onClick={() => {setPortionNumber(portionNumber + 1)}}><img className={styles.arrRight} src={arrowRight}/></button>}
         </div>

@@ -1,23 +1,33 @@
 .userPhoto {
-    width: 75px;
-    height: 75px;
-    border-radius: 50px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50px;
 }
 
 .fullContainer {
-    padding-top: 50px;
-    padding-left: 50px;
+  background-color: rgb(203, 203, 203);
+  box-shadow: 5px 5px 5px rgb(150, 144, 144);
+  margin-top: 3px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  padding-top: 15px;
+  padding-left: 50px;
 }
 
 .ava_img {
-    margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .follow_btn {
-    cursor: pointer;
-    padding: 5px;
-    margin-left: 7px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 800;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 7px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.usersContainer {
+  
 }

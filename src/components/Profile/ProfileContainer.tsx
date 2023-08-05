@@ -1,15 +1,15 @@
-import React, {ComponentType} from "react";
 import {compose} from "redux";
 import {Profile} from "./Profile";
 import {connect} from "react-redux";
-import {getStatusThunk, getUsersProfileThunk, savePhotoThunk, updateStatusThunk} from "../../redux/ProfileReducer";
+import {Navigate} from "react-router-dom";
+import React, {ComponentType} from "react";
 import {AppStateType} from "../../redux/store";
 import {withRouter} from "../common/Hooks/withRouter";
 import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
-import {Navigate} from "react-router-dom";
+import {getStatusThunk, getUsersProfileThunk, savePhotoThunk, saveProfileThunk, updateStatusThunk} from "../../redux/ProfileReducer";
 
 export type ProfileUsersType = {
-  aboutMe: string,
+  aboutMe: string
   contacts: {
     facebook: string
     website: null | string
@@ -66,6 +66,7 @@ class ProfileComponent extends React.Component<ProfileContainerType> {
                  status={this.props.status}
                  updateStatus={this.props.updateStatusThunk}
                  savePhoto={this.props.savePhotoThunk}
+                 saveProfileThunk={this.props.saveProfileThunk}
         />
       </div>
     </>
@@ -79,8 +80,8 @@ type MapDispatchToPropsType = {
   getStatusThunk: (userId: string | number) => void
   updateStatusThunk: (status: string) => void
   savePhotoThunk: (file: any) => void
+  saveProfileThunk: (fullName: string, aboutMe: string, lookingForAJob: boolean, lookingForAJobDescription: string) => void
 }
-
 
 type MapStateToPropsType = {
   profile: ProfileUsersType
@@ -103,7 +104,8 @@ const ProfileContainer: any = compose<ComponentType>(
     getUsersProfileThunk,
     getStatusThunk,
     updateStatusThunk,
-    savePhotoThunk
+    savePhotoThunk,
+    saveProfileThunk
   }), WithAuthRedirect)(withRouter(ProfileComponent))
 
 export default ProfileContainer

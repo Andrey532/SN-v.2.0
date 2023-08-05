@@ -1,6 +1,6 @@
-import {ProfileUsersType} from "../components/Profile/ProfileContainer";
 import {Dispatch} from "redux";
 import {profileAPI} from "../api/api";
+import {ProfileUsersType} from "../components/Profile/ProfileContainer";
 
 export type PostsType = {
   posts: messageData[];
@@ -83,41 +83,14 @@ export type ProfileReducerType =
   | ReturnType<typeof setStatusAC>
   | ReturnType<typeof savePhotoSuccessAC>
 
-export const addPostAC = (addNewPost: string) => {
-  return {
-    type: "ADD_POST",
-    payload: {
-      addNewPost: addNewPost,
-    }
-  } as const;
-};
+//actions
 
-export const setUsersProfileAC = (profile: ProfileUsersType) => {
-  return {
-    type: "SET-USER-PROFILE",
-    payload: {
-      profile,
-    }
-  } as const;
-};
+export const addPostAC = (addNewPost: string) => ({type: "ADD_POST", payload: {addNewPost}} as const)
+export const setUsersProfileAC = (profile: ProfileUsersType) => ({type: "SET-USER-PROFILE", payload: {profile}} as const)
+export const setStatusAC = (status: string) => ({type: "SET-STATUS", payload: {status}} as const)
+export const savePhotoSuccessAC = (photos: string | undefined) => ({type: "SAVE-PHOTO-SUCCESS", payload: {photos}} as const)
 
-export const setStatusAC = (status: string) => {
-  return {
-    type: "SET-STATUS",
-    payload: {
-      status,
-    }
-  } as const;
-};
-
-export const savePhotoSuccessAC = (photos: string | undefined) => {
-  return {
-    type: "SAVE-PHOTO-SUCCESS",
-    payload: {
-      photos,
-    }
-  } as const;
-};
+//thunks
 
 export const getUsersProfileThunk = (userId: string | number) => async (dispatch: Dispatch) => {
   const res = await profileAPI.getProfile(userId);
@@ -142,3 +115,9 @@ export const savePhotoThunk = (file: any) => async (dispatch: Dispatch) => {
     dispatch(savePhotoSuccessAC(res.data.data.photos))
   }
 };
+
+export const saveProfileThunk = (fullName: string, aboutMe: string, lookingForAJob: boolean, lookingForAJobDescription: string) => async (dispatch: Dispatch) => {
+  const res = await profileAPI.saveProfile(fullName, aboutMe, lookingForAJob, lookingForAJobDescription)
+    dispatch(setUsersProfileAC(res.data))
+    window.location.reload()
+}

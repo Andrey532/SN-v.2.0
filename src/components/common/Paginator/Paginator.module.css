@@ -1,6 +1,8 @@
 .paginator {
-    margin-top: 20px;
+    display: inline-block;
     margin-left: 250px;
+    background-color: aqua;
+    margin-top: 20px;
 }
 
 .pageNumber {

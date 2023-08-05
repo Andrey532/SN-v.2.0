@@ -50,22 +50,13 @@ export const profileAPI = {
         "Content-Type": "multipart/form-data"
       }
     });
+  },
+  saveProfile(fullName: string, aboutMe: string,lookingForAJob: boolean,lookingForAJobDescription: string) {
+    return instance.put<ProfileUsersType>(`profile`, {fullName,aboutMe,lookingForAJob,lookingForAJobDescription});
   }
 }
 
-export const authAPI = {
-  me() {
-    return instance.get<hui>(`auth/me`)
-  },
-  login(email: string, password: string, rememberMe: boolean = false) {
-    return instance.post<hui2>(`auth/login`, {email, password, rememberMe})
-  },
-  logout() {
-    return instance.delete<hui3>(`auth/login`)
-  },
-}
-
-type hui = {
+type type1 = {
   data: {
     id: string
     login: string
@@ -76,16 +67,40 @@ type hui = {
   resultCode: number
 }
 
-type hui2 = {
+type type2 = {
   resultCode: number
   messages: []
   data: {
     userId: string
   }
+  captcha: string
 }
 
-type hui3 = {
+type type3 = {
   resultCode: number
   messages: string[]
   data: {}
 }
+
+export const authAPI = {
+  me() {
+    return instance.get<type1>(`auth/me`)
+  },
+  login(email: string, password: string, rememberMe: boolean = false, captcha = "") {
+    return instance.post<type2>(`auth/login`, {email, password, rememberMe, captcha})
+  },
+  logout() {
+    return instance.delete<type3>(`auth/login`)
+  },
+}
+
+type getCaptchaUrlType = {
+  url: string 
+}
+
+export const securityAPI = {
+  getCaptchaUrl() {
+    return instance.get<getCaptchaUrlType>(`security/get-captcha-url`)
+  }
+}
+

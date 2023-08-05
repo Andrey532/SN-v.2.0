@@ -1,7 +1,7 @@
-import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
-import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {ProfileUsersType} from "./ProfileContainer";
 import style from "./Profile.module.css";
+import {ProfileUsersType} from "./ProfileContainer";
+import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
+import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 
 export type ProfilePropsType = {
   isOwner: boolean
@@ -10,6 +10,7 @@ export type ProfilePropsType = {
   status: string
   updateStatus: (status: string) => void
   savePhoto: (file: any) => void
+  saveProfileThunk: (fullName: string, aboutMe: string, lookingForAJob: boolean, lookingForAJobDescription: string) => void
 }
 
 export const Profile = (props: ProfilePropsType) => {
@@ -21,6 +22,7 @@ export const Profile = (props: ProfilePropsType) => {
                      status={props.status}
                      updateStatus={props.updateStatusThunk}
                      savePhoto={props.savePhoto}
+                     saveProfile={props.saveProfileThunk}
         />
       </div>
       <div className={style.post_container}>
