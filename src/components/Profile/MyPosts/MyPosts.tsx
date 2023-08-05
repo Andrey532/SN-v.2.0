@@ -6,8 +6,6 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {addPostAC} from "../../../redux/ProfileReducer"
 
 export const MyPosts = React.memo((props: PostsPropsType) => {
-  console.log("RENDER")
-
   const postsElements = props.posts.map((p) => (
     <Post key={p.id} message={p.message} likesCount={p.likesCount}/>
   ))

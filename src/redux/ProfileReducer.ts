@@ -66,6 +66,11 @@ export const profileReducer = (state: InitialStateType = initialState, action: P
       return {...state, profile: action.payload.profile}
     }
 
+    case "SAVE-PHOTO-SUCCESS": {
+      // @ts-ignore
+      return {...state, profile: {...state.profile, photos: action.payload.photos}}
+    }
+
     default: {
       return state;
     }
@@ -76,6 +81,7 @@ export type ProfileReducerType =
   | ReturnType<typeof addPostAC>
   | ReturnType<typeof setUsersProfileAC>
   | ReturnType<typeof setStatusAC>
+  | ReturnType<typeof savePhotoSuccessAC>
 
 export const addPostAC = (addNewPost: string) => {
   return {
@@ -104,6 +110,15 @@ export const setStatusAC = (status: string) => {
   } as const;
 };
 
+export const savePhotoSuccessAC = (photos: string | undefined) => {
+  return {
+    type: "SAVE-PHOTO-SUCCESS",
+    payload: {
+      photos,
+    }
+  } as const;
+};
+
 export const getUsersProfileThunk = (userId: string | number) => async (dispatch: Dispatch) => {
   const res = await profileAPI.getProfile(userId);
   dispatch(setUsersProfileAC(res.data))
@@ -118,5 +133,12 @@ export const updateStatusThunk = (status: string) => async (dispatch: Dispatch) 
   const res = await profileAPI.updateStatus(status)
   if (res.data.resultCode === 0) {
     dispatch(setStatusAC(status))
+  }
+};
+
+export const savePhotoThunk = (file: any) => async (dispatch: Dispatch) => {
+  const res = await profileAPI.savePhoto(file)
+  if (res.data.resultCode === 0) {
+    dispatch(savePhotoSuccessAC(res.data.data.photos))
   }
 };

@@ -1,13 +1,45 @@
 .descriptionBlock {
-  padding: 10px;
+  background-color: #358a1d;
 }
 
 .myPhoto {
-  height: 155px;
-  width: 155px;
-  border-radius: 75px;
+  display: flex;
+  margin-top: 75px;
+  margin-left: 20px;
+  height: 160px;
+  width: 160px;
+  border-radius: 150px;
 }
 
 .block {
   display: flex;
+  background-color: #901794;
+  border-radius: 5px;
+}
+
+.status {
+  background-color: aliceblue;
+}
+
+.full_name {
+  background-color: #2f2f4f;
+}
+
+.abou_me {
+  background-color: #3dcbcb;
+}
+
+.contacts {
+  background-color: blue;
+}
+
+.abou_job {
+  background-color: #fd6e6e;
+}
+
+.photo_input {
+  margin-top: 10px;
+  width: 220px;
+  cursor: pointer;
+  background-color: coral;
 }
